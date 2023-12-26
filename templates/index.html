@@ -374,7 +374,7 @@ Cinematic: 🎥 (movie camera)
         <div class="col-12 justify-content-center">
           <div class="form-container">
 
-            <div class="step hidden" id="step0">
+            <div class="step" id="step0">
               <div class="row justify-content-center">
                 <div class="col"></div>
                 <div class="col">
@@ -413,7 +413,7 @@ Cinematic: 🎥 (movie camera)
                   <div class="card-1 card-1-list-item">
                     <img src="static/img/information_cover-min.png" />
                     <div class="info">
-                      <h4>Unearth thrilling tales in 'Mosaic's' mystical library.</h4>
+                      <h4>The chosen paths shall remain concealed, hidden from sight once traversed.</h4>
                     </div>
                   </div>
                 </div>
@@ -865,27 +865,17 @@ Cinematic: 🎥 (movie camera)
     localStorage.setItem(key, JSON.stringify(obj));
   }
 
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      console.log('Text copied to clipboard');
+    }).catch(err => {
+      console.error('Could not copy text: ', err);
+    });
+  }
+
   var selectionScope = {};
   selectionScope.alreadyPicked = {};
   selectionScope.alreadyPicked = localStorage.getItem("selectionScope.alreadyPicked") ? loadFromStorage("selectionScope.alreadyPicked") : {};
-  var firstRun = localStorage.getItem("firstRun") ? loadFromStorage("firstRun") : true;
-
-  
-
-  if(firstRun){
-    
-    firstRun = false;
-    saveToStorage("firstRun", firstRun);
-  }
-
-  if(!firstRun){
-    if(!$("#step0").hasClass('hidden'))
-      $("#step0").addClass("hidden");
-
-    $("#step1").removeClass("hidden");
-  } else {
-    $("#step0").removeClass("hidden");
-  }
 
   $(".card-1").click(function () {
 
@@ -941,6 +931,8 @@ Cinematic: 🎥 (movie camera)
         $(this).removeClass("heartbeat");
         
         val = val.replace(/^[0-9]+\. /, '');//clean name of the thing before redirect
+
+        copyToClipboard(val);
 
         window.open(getSearchLink() + "'" + val + "'", "_blank")
       }
