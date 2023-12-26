@@ -938,6 +938,7 @@ Cinematic: 🎥 (movie camera)
 
         $(this).removeClass("heartbeat");
         
+        val = val.replace(/^[0-9]+\s/, '');//clean name of the thing before redirect
 
         window.open(getSearchLink() + "'" + val + "'", "_blank")
       }
