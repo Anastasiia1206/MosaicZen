@@ -49,10 +49,13 @@ def get_openai_response(prompt):
 @app.route('/get_list', methods=['POST'])
 def get_list():
     referer_header = request.headers.get('Referer')
-    
-    #Only allow requests from a specific page (e.g., https://your-allowed-page.com)
-    if not referer_header or 'http://mosaiczen.com' not in referer_header or "https://lobster-app-zybqq.ondigitalocean.app" not in referer_header:
-        #return jsonify({"error": "Access denied"}), 403
+    print(referer_header)
+
+    allowed_referers = ['https://mosaiczen.com/', 'https://lobster-app-zybqq.ondigitalocean.app/', 'http://127.0.0.1/', 'http://127.0.0.1:5000/']
+
+    # Check if the referer header is in the list of allowed referers
+    if referer_header not in allowed_referers:
+        # Access denied
         items_data = {
             'Items': []
         }
@@ -105,5 +108,5 @@ def get_list():
 def home():
     return render_template('index.html')
 
-#if __name__ == '__main__':
-#    app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)

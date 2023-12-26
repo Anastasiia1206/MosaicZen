@@ -120,8 +120,8 @@ Cinematic: 🎥 (movie camera)
   .card-1 {
     /* width: 15vh;
     height: 25vh; */
-    width: 9vmax;
-    height: 16vmax;
+    /* width: 9vmax;
+    height: 16vmax; */
     /* width: 18rem;
     height: 22rem; */
     border-radius: 15px;
@@ -140,6 +140,31 @@ Cinematic: 🎥 (movie camera)
     border: .3vmax solid orange;
   }
 
+
+  @media (max-width: 1000px) {
+    .card-1 {
+      width: 12vmax;
+      height: 18vmax;
+    }
+
+    .card-1-list-item {
+      width: 12vmax;
+      height: 18vmax;
+    }
+  }
+
+  @media (min-width: 1001px) {
+    .card-1 {
+      width: 9vmax;
+      height: 16vmax;
+    }
+
+    .card-1 h2{
+     font-size: 1.5vmax;
+    }
+  }
+
+  
 
   .card-1-list-item {
     width: 11vmax;
@@ -219,6 +244,7 @@ Cinematic: 🎥 (movie camera)
     top: 10%;
     transform: rotate(90deg);
     text-wrap: nowrap;
+    white-space: nowrap;
   }
 
   .heartbeat{
@@ -404,6 +430,7 @@ Cinematic: 🎥 (movie camera)
             <div class="step hidden" id="step1">
               <div class="row justify-content-center">
                 <div class="col"></div>
+
                 <div class="col">
                   <h1>Emotional Resonance</h1>
                 </div>
@@ -411,6 +438,7 @@ Cinematic: 🎥 (movie camera)
               </div>
 
               <div class="row justify-content-center">
+
                 <div class="col">
                   <div class="card-1">
                     <img src="static/img/reflective_poster.png" />
@@ -451,6 +479,8 @@ Cinematic: 🎥 (movie camera)
                     </div>
                   </div>
                 </div>
+                <div class="col"></div>
+
               </div>
               <div class="row" style="height: 2vmax;"></div>
               <div class="row justify-content-center">
@@ -889,7 +919,7 @@ Cinematic: 🎥 (movie camera)
         setTimeout(function() {
           $(currentElement).addClass("heartbeat");
           $(currentElement).find("p").removeClass("hidden");
-        }, 1250);
+        }, 400);
       }
 
       let val = $(this).find("h4").text()
