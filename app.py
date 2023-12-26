@@ -1,13 +1,14 @@
+import os
 from flask import Flask, render_template, request, jsonify
 from openai import OpenAI
 import random
 import uuid
-# from flask_cors import CORS
+from flask_cors import CORS
 
 app = Flask(__name__)
-# CORS(app)
+CORS(app)
 # Set your OpenAI API key
-api_key = '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'
+#api_key = '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'
 prompt = """
 I need a list of 5 recommendations of "$Canvas_of_Dreams" based on the following criteria from a user.
 
@@ -28,8 +29,8 @@ $exclude
 
 client = OpenAI(
     # This is the default and can be omitted
-    # api_key=os.environ.get("OPENAI_API_KEY"),
-    api_key=api_key
+    api_key=os.environ.get("OPENAI_API_KEY"),
+    #api_key=api_key
 )
 
 def get_openai_response(prompt):
