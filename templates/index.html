@@ -915,6 +915,7 @@ Cinematic: 🎥 (movie camera)
       }
 
       let val = $(this).find("h4").text()
+      copyToClipboard(val);
       if ($(this).hasClass('clicked')) {
 
         if(selectionScope.alreadyPicked[selectionScope["Canvas of Dreams"]])
@@ -932,8 +933,7 @@ Cinematic: 🎥 (movie camera)
         
         val = val.replace(/^[0-9]+\. /, '');//clean name of the thing before redirect
 
-        copyToClipboard(val);
-
+        
         window.open(getSearchLink() + "'" + val + "'", "_blank")
       }
       $(this).toggleClass('clicked');
