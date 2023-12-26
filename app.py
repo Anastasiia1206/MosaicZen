@@ -50,9 +50,13 @@ def get_openai_response(prompt):
 def get_list():
     referer_header = request.headers.get('Referer')
     
-    # Only allow requests from a specific page (e.g., https://your-allowed-page.com)
-    # if not referer_header or 'https://your-allowed-page.com' not in referer_header:
-    #     return jsonify({"error": "Access denied"}), 403
+    #Only allow requests from a specific page (e.g., https://your-allowed-page.com)
+    if not referer_header or 'http://mosaiczen.com' not in referer_header or "https://lobster-app-zybqq.ondigitalocean.app" not in referer_header:
+        #return jsonify({"error": "Access denied"}), 403
+        items_data = {
+            'Items': []
+        }
+        return items_data
 
     data = request.json
 
