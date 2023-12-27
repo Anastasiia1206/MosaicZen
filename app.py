@@ -51,15 +51,15 @@ def get_list():
     referer_header = request.headers.get('Referer')
     print(referer_header)
 
-    allowed_referers = ['https://mosaiczen.com/', 'https://lobster-app-zybqq.ondigitalocean.app/', 'http://127.0.0.1/', 'http://127.0.0.1:5000/']
+    # allowed_referers = ['https://mosaiczen.com/', 'https://lobster-app-zybqq.ondigitalocean.app/', 'http://127.0.0.1/', 'http://127.0.0.1:5000/']
 
-    # Check if the referer header is in the list of allowed referers
-    if referer_header not in allowed_referers:
-        # Access denied
-        items_data = {
-            'Items': []
-        }
-        return items_data
+    # # Check if the referer header is in the list of allowed referers
+    # if referer_header not in allowed_referers:
+    #     # Access denied
+    #     items_data = {
+    #         'Items': []
+    #     }
+    #     return items_data
 
     data = request.json
 
