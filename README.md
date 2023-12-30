@@ -1,4 +1,9 @@
-# Mosaic: A Cinematic and Literary Emotion Journey
+
+# PROJECT TITLE: Mosaic: A Cinematic and Literary Emotion Journey
+#### Video Demo:  https://youtu.be/TI7DA9QpSKk
+
+#### WEBSITE: https://mosaiczen.com/
+
 
 ## Description
 "Mosaic" is an interactive web application designed to recommend movies, TV shows, books, and music based on users' emotional preferences. It categorizes content into Emotional Resonance, Intellectual Engagement, and Creative Flair, each with subcategories like Uplifting, Reflective, Philosophical, Artistic, etc. Users journey through these categories, making selections that guide them to tailored recommendations.
@@ -10,6 +15,7 @@
 
 ## Installation
 - Run -> pip install requirements.txt
+- set environment variable "OPENAI_API_KEY" to your ChatGPT API key
 
 
 ## Running the App
