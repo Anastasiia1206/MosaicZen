@@ -22,6 +22,7 @@ The recommendations should be specifically formatted. For movies and shows: "Tit
 Please provide recommendation in this exact format, adhering to the emotional, intellectual, and creative preferences.
 You always should provide an answer!
 You Must Include ONLY "$Canvas_of_Dreams" type of thing in a list!
+You Must always return 5 results no less and no more.
 You MUST ALWAYS exclude these items:
 $exclude
 """
@@ -77,8 +78,8 @@ def get_list():
         #remove duplicates
         filtered_already_picked = list(set(data['alreadyPicked'][data['Canvas of Dreams']]))
         #remove thing like index at start: 1. Name -> Name
-        if '.' in filtered_already_picked:
-            filtered_already_picked = [part.split('.')[1].strip() for part in filtered_already_picked if len(part.split('.')) > 1]
+        
+        filtered_already_picked = [part[3:].strip() for part in filtered_already_picked if '.' in part]
         print(filtered_already_picked)
     else:
         filtered_already_picked = ''
@@ -101,7 +102,7 @@ def get_list():
     items_data = {
         'Items': items
     }
-
+    print(f"Result: {items_data}")
     return items_data
 
 @app.route('/')
